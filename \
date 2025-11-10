@@ -1,0 +1,33 @@
+from stats import wordcount,count_chars,dict_to_list,hulpfun
+
+
+def get_book_text (filepath):
+        
+    with open(filepath) as f: 
+        file_contents = f.read()  
+        book_text = file_contents # to be clear
+    
+    return book_text
+
+
+def main():
+    
+    book_text = get_book_text("books/frankenstein.txt") 
+    # let op filepath is een string oftewel:
+    # een path-like object
+    text = book_text # kortere string gaat soepeler door de machine
+    
+    num_words = wordcount(text)
+    num_chars = count_chars(text)
+    listed_dict = dict_to_list(num_chars)
+
+    # evt. # message = "Found " + str(num_words) + " total words" # ,of
+    # met: # print(message)
+    print (f"Found {num_words} total words")
+    # print (f"Found {num_chars} total chars")
+    for i in listed_dict:
+        print (listed_dict[i])
+
+main()
+
+
